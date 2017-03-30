@@ -1,16 +1,86 @@
-
-
-P192 = fm.grandstream.com/gs	# Firmware Server Path
-P237 = fm.grandstream.com/gs	# Config Server Path
-P30 = br.pool.ntp.org			# NTP Server
+﻿
+# Maintenance/Upgrade and Provisioning
+P192 = fm.grandstream.com/gs			# Firmware Server Path
+P237 = fm.grandstream.com/gs			# Config Server Path
 
 # Account 1/General Settings
-P270 = Account Name				# Account Name
+# P270 = SR/AL					# Account Name
 P271 = 1						# Account Active. 0 - No, 1 - Yes. Default is 1
-P47 = sip.server				# SIP Server
-P33 = *72						# Voice Mail Access Number
+P47 = 10.82.4.206				# SIP Server
+P191=0							# Enable Call Features
+P33=*97							# Voicemail Access
 
 
-P64 = auto						# Time Zone
-P338 = 1						# Disable in-call DTMF Display. 0 - No, 1 - Yes. Default is 0
+#P212=2					#Update via HTTPS
 
+P290={ x+ | *x+ | *xx*x+ | **xxxx }          #modifica o dialplan e permite capturar
+				             #ramais com o duplo asterisco + ramal 4 digitos
+
+
+# Settings/XML Applications
+#P340=1							# IDLE Screen XML via HTTP
+#P341=fm.grandstream.com/gs		# Idle Screen XML Server Path
+#P1341=1
+
+P104=3            #toque padrão para as ligações que vem de de ramal interno (dentro do PABX Asterisk)
+P1488=externa     #informa o match que será recebido pelo ALERT_INFO da inbound route
+P1489=0           #informa o tipo de toque diferenciado quando entrar uma chamada pelo E1
+
+							# Download Screen XML at Boot-up
+
+
+#SOFTKEY
+P2987=14					# SOFTKEY 1 Speed Dial Active Account					
+#P2988=0							# Select Account 1
+P2989=Suporte					# Description
+P2990=555						# Value
+
+# Settings/Date and Time
+P30 = 10.82.4.206				# NTP Server
+P64 = customize					# Time Zone
+P246 = BRST+3					# Self-Defined Time Zone
+P102 = 2						# Date Display Format
+P122 = 1						# Time Display Format
+
+# Settings/Call Features
+P338 = 1						# Disable in-call DTMF Display
+
+# Maintenance/Language
+P1362 = pt						# Display Language
+
+# Login
+P2=10824206
+
+# Call Recording
+P26028=*1
+P26029=*1
+
+# Security/Keypad Menu
+P1357=2							# Constraint Mode
+
+# Call Features - Mute Key Functions While Idle
+P1565=1
+
+#Network Basics Setting
+
+P8=1      #Staticaly configured
+P13=255
+P14=255
+P15=252
+P16=0
+P17=10
+P18=82
+P19=4
+P20=1
+P21=10
+P22=82
+P23=4
+P24=201
+P25=10
+P26=82
+P27=4
+P28=202
+P92=10
+P93=82
+P94=4
+P95=201
